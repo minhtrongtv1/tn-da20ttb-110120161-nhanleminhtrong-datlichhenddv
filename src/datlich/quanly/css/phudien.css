@@ -1,0 +1,21 @@
+.nguyenphudien{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;  
+    
+}
+.nguyendien{
+   position: relative;
+   box-sizing: border-box;
+}
+.nguyendien1
+{
+    position: absolute;
+    left: 80%;
+}
+.nguyendien2
+{
+    position: absolute;
+    right: -3%;
+}
