@@ -52,7 +52,7 @@
     </head>
     <style>
 .nen {
- background-image: url("images/carousel-3.jpg");
+ background-image: url("images/background_body.jpg");
   height: 500px; 
   background-position: center; 
   background-repeat: no-repeat; 

@@ -60,7 +60,7 @@ h3{
 							</div>
 							<br>
 							<div style="text-align:center;">
-							<a class="btn btn-success" href="themvaitro.php">Thêm danh mục</a> &ensp;
+							<a class="btn btn-success" href="themdanhmuc.php">Thêm danh mục</a> &ensp;
 							</div>
 							<div class="module-body table">
 								

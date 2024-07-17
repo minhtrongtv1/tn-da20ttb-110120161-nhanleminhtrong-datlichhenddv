@@ -1,5 +1,5 @@
 <?php
-$connection = new mysqli("localhost","root","","shop");
+$connection = new mysqli("localhost","root","","datlich");
 
 // Check connection
 if ($connection->connect_errno) {
