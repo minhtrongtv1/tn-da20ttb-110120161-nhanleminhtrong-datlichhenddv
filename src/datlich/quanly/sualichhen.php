@@ -17,10 +17,10 @@ if(!$row) {
 $msg = "";
 
 if(isset($_POST['submit'])){
-    $tenquanly = $_POST['tenquanly'];
+    // $tenquanly = $_POST['tenquanly'];
     $tenlichhen = $_POST['tenlichhen'];
-    $malichhen = $_POST['malichhen'];
-    $thoigianlamviec = $_POST['thoigianlamviec'];
+
+
     $hinhanh = $_FILES['hinhanh']['name'];
     $tomtat = $_POST['tomtat'];
     $noidung = $_POST['noidung'];
@@ -31,9 +31,9 @@ if(isset($_POST['submit'])){
     
     if($hinhanh) {
         move_uploaded_file($_FILES['hinhanh']['tmp_name'], "../admin/images/".$_FILES['hinhanh']['name']);
-        $sql_update = "UPDATE tbl_lichhen SET tenquanly='$tenquanly', tenlichhen='$tenlichhen', malichhen='$malichhen', thoigianlamviec='$thoigianlamviec', hinhanh='$hinhanh', tomtat='$tomtat', noidung='$noidung', diachi='$diachi', tencoquan='$tencoquan', gio='$gio', ngay='$ngay' WHERE id_lichhen='$id_lichhen'";
+        $sql_update = "UPDATE tbl_lichhen SET tenlichhen='$tenlichhen', hinhanh='$hinhanh', tomtat='$tomtat', noidung='$noidung', diachi='$diachi', tencoquan='$tencoquan', gio='$gio', ngay='$ngay' WHERE id_lichhen='$id_lichhen'";
     } else {
-        $sql_update = "UPDATE tbl_lichhen SET tenquanly='$tenquanly', tenlichhen='$tenlichhen', malichhen='$malichhen', thoigianlamviec='$thoigianlamviec', tomtat='$tomtat', noidung='$noidung', diachi='$diachi', tencoquan='$tencoquan', gio='$gio', ngay='$ngay' WHERE id_lichhen='$id_lichhen'";
+        $sql_update = "UPDATE tbl_lichhen SET tenlichhen='$tenlichhen', tomtat='$tomtat', noidung='$noidung', diachi='$diachi', tencoquan='$tencoquan', gio='$gio', ngay='$ngay' WHERE id_lichhen='$id_lichhen'";
     }
     
     if(mysqli_query($connection, $sql_update)){
@@ -129,16 +129,8 @@ if(isset($_POST['submit'])){
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input type="text" class="form-control" name="tenlichhen" value="<?php echo $row['tenlichhen']; ?>" required>
                     </div>
-                    <br>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" class="form-control" name="malichhen" value="<?php echo $row['malichhen']; ?>" required>
-                    </div>
-                    <br>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" class="form-control" name="thoigianlamviec" value="<?php echo $row['thoigianlamviec']; ?>" required>
-                    </div>
+               
+                   
                     <br>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -149,7 +141,7 @@ if(isset($_POST['submit'])){
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <textarea type="text" class="form-control" name="noidung" required><?php echo $row['noidung']; ?></textarea>
                     </div>
-                    <br>
+                   
                     <!-- <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input type="text" class="form-control" readonly value="<?php echo ucwords($row['tenvaitro']); ?>">

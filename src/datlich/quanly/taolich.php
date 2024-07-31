@@ -14,8 +14,6 @@
 
     if(isset($_POST['submit'])){
         $tenlichhen= $_POST['tenlichhen'];
-        $malichhen= $_POST['malichhen'];
-        $thoigianlamviec= $_POST['thoigianlamviec'];
         $hinhanh= $_FILES['hinhanh']['name'];
         move_uploaded_file($_FILES['hinhanh']['tmp_name'],"../admin/images/".$_FILES['hinhanh']['name']); 
         $tomtat= $_POST['tomtat'];
@@ -28,26 +26,9 @@
         $ngay= $_POST['ngay'];
         $id_quanly = $id_quanly1;
 
-        $signup_query= "INSERT INTO `tbl_lichhen`(`id_lichhen`, `tenlichhen`, `malichhen`,`thoigianlamviec`,`hinhanh`, `tomtat`, `noidung`, `id_vaitro`, `diachi`, `tencoquan`, `tenquanly`,`gio`,`ngay`,`id_quanly`) VALUES ('','$tenlichhen','$malichhen','$thoigianlamviec','$hinhanh','$tomtat','$noidung','$id_vaitro','$diachi','$tencoquan','$tenquanly','$gio','$ngay','$id_quanly')"; 
+        $signup_query= "INSERT INTO `tbl_lichhen`(`id_lichhen`, `tenlichhen`,`hinhanh`, `tomtat`, `noidung`, `id_vaitro`, `diachi`, `tencoquan`, `tenquanly`,`gio`,`ngay`,`id_quanly`) VALUES ('','$tenlichhen','$hinhanh','$tomtat','$noidung','$id_vaitro','$diachi','$tencoquan','$tenquanly','$gio','$ngay','$id_quanly')"; 
         
-        $check_query= "SELECT * FROM `tbl_lichhen` WHERE malichhen='$malichhen'";
-        
-        $check_res=mysqli_query($connection,$check_query);
-        
-        if(mysqli_num_rows($check_res)>0){
-
-          $msg='<script type="text/javascript">
-          $(document).ready(function() {
-                swal("Mã lịch hẹn đã tồn tại! Vui lòng nhập lại!", {
-                          icon: "error",
-                      });
-                  
-              });
-          </script>'; 
-        }
-        
-        else{
-            $signup_res= mysqli_query($connection,$signup_query); 
+       
             $msg='<script type="text/javascript">
             $(document).ready(function() {
                 swal({
@@ -60,7 +41,7 @@
             });
         </script>';   
             
-        }
+        
         
     }
 
@@ -160,16 +141,16 @@ body{
                   <input type="text" class="form-control" name="tenlichhen" placeholder="Nhập tên lịch hẹn" required>
               </div>
               <br>
-              <div class="input-group">
+              <!-- <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                   <input type="text" class="form-control" name="malichhen" placeholder="Nhập mã lịch hẹn" required>
               </div>
-              <br>
-              <div class="input-group">
+              <br> -->
+              <!-- <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                   <input type="text" class="form-control" name="thoigianlamviec" placeholder="Nhập thời gian làm việc" required>
               </div>
-              <br>
+              <br> -->
               <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                   <input type="text" class="form-control" name="tomtat" placeholder="Tóm tắt" required>

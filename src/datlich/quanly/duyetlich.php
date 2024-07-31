@@ -50,10 +50,10 @@ if (mysqli_num_rows($res) > 0) {
                 $mail = new Mailer();
                 $mail->datlichmail(
                     'Thông báo xác nhận đặt lịch',
-                    'Khách hàng đã đặt lịch thành công với' . "\n" .
-                    'Mã lịch hẹn: ' . $_SESSION['malichhen'] . "\n" .
-                    'Giờ đặt: ' . $_SESSION['gio'] . "\n" .
-                    'Thêm nội dung email ở đây',
+                    'Khách hàng đã đặt lịch thành công' . "\n" .
+                    'giờ đặt lịch: ' . $_SESSION['gio'] . "\n" .
+                    'ngày đặt lịch: ' . $_SESSION['ngay'] . "\n" .
+                    'hãy nhớ đến đúng giờ và ngày đã đặt lịch để thực hiện dịch vụ',
                     $email
                 );
             }

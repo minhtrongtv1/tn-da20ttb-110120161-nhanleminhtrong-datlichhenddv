@@ -105,10 +105,6 @@ body{
                 <td><?php echo ucwords($row['tenlichhen']); ?></td>
             </tr>
             <tr>
-                <th>Thời gian làm việc</th>
-                <td><?php echo $row['thoigianlamviec']; ?></td>
-            </tr>
-            <tr>
                 <th>Tóm tắt</th>
                 <td><?php echo $row['tomtat']; ?></td>
             </tr>
@@ -164,6 +160,8 @@ body{
                     }else{
                         $check_khach=0; //khách không có trong lịch
                     }
+
+                  
 
                     if($luothen<=5 && $check_khach==1 && $row_tinhtrang['duocduyet'] == 0){ //khách có trong lịch và lịch đã full ?>
                         <h4 style="color: orange;">CHỜ DUYỆT...</h4>

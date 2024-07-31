@@ -107,10 +107,6 @@ body{
                 <td><?php echo ucwords($row['tenlichhen']); ?></td>
             </tr>
             <tr>
-                <th>Thời gian làm việc</th>
-                <td><?php echo $row['thoigianlamviec']; ?></td>
-            </tr>
-            <tr>
                 <th>Tóm tắt</th>
                 <td><?php echo $row['tomtat']; ?></td>
             </tr>

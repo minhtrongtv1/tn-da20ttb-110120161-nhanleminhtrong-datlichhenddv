@@ -130,7 +130,7 @@ body {
                              <select class="a" id="chucvu" name="chucvu" required>
                                   <option value="">--Chọn chức vụ--</option>  
                                   <option value="1">Quản lý nhân sự</option>
-                                  <option value="2">Nhân viên</option>
+                                  <option value="0">Nhân viên</option>
                               
                               </select>
                              Tên tài khoản

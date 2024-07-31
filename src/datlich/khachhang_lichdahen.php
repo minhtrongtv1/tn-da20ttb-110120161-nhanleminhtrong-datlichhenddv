@@ -75,8 +75,7 @@ body{
                     <th style="width:8%;">Ngày hẹn</th>
                     <th style="width:8%;">Phê duyệt</th>
                 </tr> 
-                <?php
-                
+                <?php                
                     $sql_duyet= "SELECT * FROM `tbl_booking`, `tbl_lichhen` WHERE tbl_booking.id_lichhen=tbl_lichhen.id_lichhen AND tbl_booking.id_khachhang='$id_khachhang' AND tbl_booking.duocduyet='1'";
                     $res_duyet=mysqli_query($connection,$sql_duyet);
                     $sql_kh= "SELECT * FROM tbl_booking, tbl_lichhen WHERE tbl_booking.id_lichhen=tbl_lichhen.id_lichhen AND tbl_booking.id_khachhang='$id_khachhang'"; 
@@ -100,8 +99,6 @@ body{
                                 <?php }else{ ?>
                                     <td style="text-align:center"><a type="submit" class="btn buttonxoa" href="huyhen.php?id_lichhen=<?php echo $row_kh['id_lichhen']?>">Hủy hẹn</a></td>
                                     <?php } ?>
-                                <!-- <td style="text-align:center"><a type="submit" class="btn buttonxoa" href="huyhen.php?id_lichhen=<?php echo $row_kh['id_lichhen']?>">Hủy hẹn</a></td>
-                                <td style="text-align:center"><h6 style="color: red;">CHƯA DUYỆT</h6></td> -->
 
                         </tr>
                     <?php } ?>

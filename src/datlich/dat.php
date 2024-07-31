@@ -12,8 +12,28 @@
     $row= mysqli_fetch_assoc($res);
     $id_quanly= $row['id_quanly'];
     $tinhtrang='1';
+    $giohen= $row['gio'];
+    $ngayhen= $row['ngay'];
     $msg="";
-        $sql= "INSERT INTO `tbl_booking`(`id_booking`, `id_lichhen`, `id_khachhang`,`id_quanly`,`tinhtrang`) VALUES ('','$id_lichhen','$id_khachhang','$id_quanly','$tinhtrang')"; 
+
+    $sqlcheck_ngay= "SELECT * FROM tbl_booking WHERE id_khachhang='$id_khachhang' AND ngayhen='$ngayhen'";
+    $rescheck_ngay=mysqli_query($connection,$sqlcheck_ngay);
+    if(mysqli_fetch_assoc($rescheck_ngay)==true){
+        $check_ngay=1; //khách trùng ngày
+    }else{
+        $check_ngay=0; //khách không trùng ngày
+    }
+
+    $sqlcheck_gio= "SELECT * FROM tbl_booking WHERE id_khachhang='$id_khachhang' AND giohen='$giohen'";
+    $rescheck_gio=mysqli_query($connection,$sqlcheck_gio);
+    if(mysqli_fetch_assoc($rescheck_gio)==true){
+        $check_gio=1; //khách trùng ngày
+    }else{
+        $check_gio=0; //khách không trùng ngày
+    }
+
+    if($check_ngay==0 && $check_gio==0 || $check_ngay==1 && $check_gio==0 || $check_ngay==0 && $check_gio==0){
+        $sql= "INSERT INTO `tbl_booking`(`id_booking`, `id_lichhen`, `id_khachhang`,`id_quanly`,`tinhtrang`,`ngayhen`,`giohen`) VALUES ('','$id_lichhen','$id_khachhang','$id_quanly','$tinhtrang','$ngayhen','$giohen')"; 
         $res= mysqli_query($connection,$sql);
         if($res=true){
              $msg="<script language='javascript'>
@@ -31,6 +51,18 @@
              swal(
                  'Thất bại!',
                  'Không thể đặt lịch hẹn!',
+                  'error'      
+                  );
+                  var timer = setTimeout(function() {
+                   window.location=('datlichhen.php?id_lichhen=$id_lichhen')
+               }, 2000);
+       </script>";
+     }
+    }elseif($check_ngay==1 && $check_gio==1){
+        $msg="<script language='javascript'>
+             swal(
+                 'Thất bại!',
+                 'Trùng khung giờ với lịch hẹn khác!',
                   'error'      
                   );
                   var timer = setTimeout(function() {
